@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+      <header >    
+        <img src="images/logo.png" alt="logo" id="logo">
+        <h1> Loan Application Page</h1>
+      </header>      
+    <br>
+    <form action="#" onsubmit="return validation()">
+        <div class="fields">
+            <label for="fname" class="form-label">First Name</label><br>
+            <input type="text" id="fname">
+            <span id="username1" class="text-danger"></span>
+        </div>
+        <br>
+        <div class="fields">
+            <label for="lname" class="form-label">Last Name</label><br>
+            <input type="text" id="lname">
+            <span id="username2" class="text-danger"></span>
+        </div>
+        <br>
+        <div class="fields">
+            <label for="Email" class="form-label">Email Address</address></label><br>
+            <input type="email" id="Email">
+            <span id="mailid" class="text-danger"></span>
+       </div>
+       <br>
+       <div class="fields">
+           <label for="PanID" class="form-label">PAN Number</label><br>
+           <input type="text" id="PanID">
+           <span id="pan" class="text-danger"></span>
+       </div>
+      <br>
+       <div class="fields">
+            <label for="Amount" class="form-label">Loan Amount</label><br>
+            <input type="number" id="Amount">
+            <span id="myamount" class="text-danger"></span>
+       </div>
+       <br>
+       <div class="fields">
+            <label for="captcha" class="form-label">Captcha</label><br>
+            <input type="text" id="captcha" readonly="readonly">
+            <input type="button" id="refresh" value="refresh">
+            <span id="cap" class="text-danger"></span>
+       </div>
+       <br>
+       <div class="fields">
+          <input type="text" name="#" id="captchawrite">
+          <input type="button" value="check">
+       </div>
+       <br> 
+          <button type="submit" class="btn btn-primary" id="button">Submit</button>
+      </form>
+    
+    
+    <SCript type="text/javascript">
+
+      function validation(){
+        var first = document.getElementById('fname').value;
+        var last = document.getElementById('lname').value;
+        var mail = document.getElementById('Email').value;
+        var amount = document.getElementById('Amount').value;
+        var pan = document.getElementById('PanID').value;
+        var str1 = "Dear " + first +","+"Thank you for your inquiry.A 4 digit verification number has been sent to your email : " + mail + " please enter it in the following box and submit for confirmation.";
+        document.write(str1);
+      
+        
+
+        if (first.length>4){
+          document.getElementById('username1').innerHTML = "**name must have maximum 4 characters only"
+          return false;
+        }
+        if (last.length>4){
+          document.getElementById('username2').innerHTML = "**name must have maximum 4 characters only"
+          return false;
+        }
+        if (mail.charAt(mail.length-3)!='.'){
+          document.getElementById('mailid').innerHTML = "**enter valid email id"
+          return false;
+        }
+        var len = pan.slice(5,9);
+        if (pan.length>10 || isNaN(len)){
+          document.getElementById('pan').innerHTML = "**enter valid PAN number "
+          return false;
+        }
+        
+      }
+
+    </SCript>
+</body>
+</html>
